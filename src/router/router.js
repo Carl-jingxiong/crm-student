@@ -69,489 +69,84 @@ export const otherRouter = {
     ]
 };
 
-// 项目经理的路由
-const projectManagerRouter = [
+// 学生的路由
+const studentRouter = [
     {
-        path: '/daily',
-        icon: 'android-clipboard',
-        name: 'daily',
-        title: '日报',
-        access:1,
+        path: '/online_practice',
+        icon: 'document-text',
+        name: 'online_practice',
+        title: '在线练习',
+        access:25,
         component: Main,
         children: [
             {
-                path: '/daily',
-                name: 'daily_index',
-                icon:'funnel',
-                title: '查看日报',
-                component: () => import('@/views/projectManager/daily/daily.vue')
+                path: 'interview_topic',
+                name: 'interview_topic',
+                title: '面试题练习',
+                icon:'ios-book-outline',
+                component: () => import('@/views/student/online_practice/interview_topic.vue')
             },
             {
-                path: '/sendDaily',
-                name: 'sendDaily_index',
-                icon:'paper-airplane',
-                title: '发送日报',
-                component: () => import('@/views/projectManager/daily/send-daily.vue')
-            },
-        ]
-    },
-    {
-        path: '/students',
-        icon: 'android-contacts',
-        name: 'students',
-        title: '学生管理',
-        access:1,
-        component: Main,
-        children: [
-            {
-                path: 'pro_studentsMessage',
-                name: 'pro_studentsMessage',
-                title: '学生信息',
-                icon:'document',
-                component: () => import('@/views/projectManager/students/pro_studentsMessage.vue')
-            },
-            {
-                path: 'pro_studentsAttendance',
-                name: 'pro_studentsAttendance',
-                title: '学生考勤',
-                icon:'flag',
-                component: () => import('@/views/projectManager/students/pro_studentsAttendance.vue')
-            },
-            {
-                path: 'pro_studentsExamAchievement',
-                name: 'pro_studentsExamAchievement',
-                title: '考试成绩',
-                icon:'ios-copy',
-                component: () => import('@/views/projectManager/students/pro_studentsExamAchievement.vue')
+                path: 'test_topic',
+                name: 'test_topic',
+                title: '考试题练习',
+                icon:'ios-book',
+                component: () => import('@/views/student/online_practice/test_topic.vue')
             }
         ]
     },
     {
-        path: '/test',
-        name: 'test',
-        title: '考试练习',
-        icon:'happy-outline',
-        access:1,
+        path: '/online_exam',
+        name: 'online_exam',
+        title: '在线考试',
+        icon:'ios-compose',
+        access:25,
         component: Main,
         children: [
             {
-                path: 'exam_index',
-                name: 'exam_index',
-                icon:'happy-outline',
+                path: 'online_exam_index',
+                name: 'online_exam_index',
+                icon:'ios-compose',
                 title: '在线考试',
-                component: () => import('@/views/projectManager/test/exam.vue')
-            },
-            {
-                path: 'exercise_index',
-                name: 'exercise_index',
-                icon:'happy-outline',
-                title: '在线练习',
-                component: () => import('@/views/projectManager/test/exercise.vue')
+                component: () => import('@/views/student/online_exam/online_exam.vue')
             }
         ]
     },
     {
-        path: '/entryTopic',
-        icon: 'social-buffer',
-        name: 'entryTopic',
-        title: '录题',
-        access:1,
+        path: '/person_attendance',
+        icon: 'ios-alarm',
+        name: 'person_attendance',
+        title: '个人考勤',
+        access:25,
         component: Main,
         children: [
             {
-                path: 'entryTopic_index',
-                name: 'entryTopic_index',
-                title: '录入题目',
-                component: () => import('@/views/projectManager/entry_topic/entry_topic.vue')
+                path: 'person_attendance_index',
+                name: 'person_attendance_index',
+                title: '个人考勤',
+                component: () => import('@/views/student/person_attendance/person_attendance.vue')
             }
+        ]
+    },
+    {
+        path: '/student_suggestions',
+        icon: 'alert-circled',
+        name: 'student_suggestions',
+        title: '投诉建议',
+        access:25,
+        component: Main,
+        children: [
+            {
+                path: '/student_suggestions_index',
+                name: 'student_suggestions_index',
+                icon:'alert-circled',
+                title: '投诉建议',
+                component: () => import('@/views/student/suggestions/student_suggestions.vue')
+            },
         ]
     },
 ]
 
-// 品保主管的路由
-const harryRouter=[
-    {
-        path: '/test_keshan',
-        icon: 'android-clipboard',
-        name: 'test_keshan',
-        access:2,
-        title: '测试页面-可删',
-        component: Main,
-        children: [
-            { 
-                path: '/test_keshan',
-                name: 'test_keshan_index',
-                icon:'funnel',
-                title: '测试页面-可删',
-                component: () => import('@/views/harry/test_keshan/test_keshan.vue')
-            }
-        ]
-    },
-    {
-        path: '/manage',
-        icon: 'ios-toggle-outline',
-        name: 'manage',
-        access:2,
-        title: '基本管理',
-        component: Main,
-        children: [
-            {
-                path: 'manage_center',
-                name: 'manage_center',
-                icon:'location',
-                title: '中心管理',
-                component: () => import('@/views/harry/manage/manage_center.vue')
-            },
-            {
-                path: 'manage_students',
-                name: 'manage_students',
-                icon:'android-contacts',
-                title: '学生管理',
-                component: () => import('@/views/harry/manage/manage_students.vue')
-            },
-            {
-                path: 'manage_class',
-                name: 'manage_class',
-                icon:'bookmark',
-                title: ' 班级管理',
-                component: () => import('@/views/harry/manage/manage_class.vue')
-            },
-        ]
-    },
-    {
-        path: '/topic',
-        icon: 'filing',
-        name: 'topic',
-        access:2,
-        title: '管理题库',
-        component: Main,
-        children: [
-            {
-                path: 'review_topic',
-                name: 'review_topic',
-                icon:'toggle-filled',
-                title: '题目审核',
-                component: () => import('@/views/harry/topic/review_topic.vue')
-            },
-            {
-                path: 'topiv_library',
-                name: 'topiv_library', 
-                icon:'briefcase',
-                title: '查看题库',
-                component: () => import('@/views/harry/topic/topiv_library.vue')
-            }
-        ]
-    },
-    {
-        path: '/recruitment',
-        icon: 'filing',
-        name: 'ios-cog-outline',
-        title: '人才招聘',
-        access:2,
-        component: Main,
-        children: [
-            {
-                path: 'test_result',
-                name: 'test_result',
-                icon:'ios-pie-outline',
-                title: '测试结果',
-                component: () => import('@/views/harry/recruitment/test_result.vue')
-            },
-            {
-                path: 'test_paper',
-                name: 'test_paper',
-                icon:'ios-bookmarks-outline',
-                title: '测试试卷',
-                component: () => import('@/views/harry/recruitment/test_paper.vue')
-            },
-        ]
-    },
-    {
-        path: '/harrydaily',
-        icon: 'android-clipboard',
-        name: 'harrydaily',
-        access:2,
-        title: '日报',
-        component: Main,
-        children: [
-            { 
-                path: '/harrydaily',
-                name: 'harrydaily_index',
-                icon:'funnel',
-                title: '查看日报',
-                component: () => import('@/views/harry/daily/daily.vue')
-            }
-        ]
-    },
-    {
-        path: '/complaints',
-        icon: 'sad-outline',
-        name: 'complaints',
-        access:2,
-        title: '投诉',
-        component: Main,
-        children: [
-            {
-                path: '/complaints',
-                name: 'complaints_index',
-                icon:'android-sad',
-                title: '查看投诉',
-                component: () => import('@/views/harry/complaints/complaints.vue')
-            }
-        ]
-    },
-    {
-        path: '/monitor360',
-        icon: 'android-locate',
-        name: 'monitor360',
-        access:2,
-        title: '远程监控',
-        component: Main,
-        children: [
-            { 
-                path: 'monitor360',
-                name: 'monitor360_index',
-                icon: 'android-locate',
-                title: '远程监控',
-                component: () => import('@/views/harry/monitor360/monitor360.vue')
-            }
-        ]
-    },
-    {
-        path: '/proman_test',
-        icon: 'sad-outline',
-        access:2,
-        name: 'proman_test',
-        title: '项目经理考核',
-        component: Main,
-        children: [
-            { 
-                path: 'proman_test',
-                name: 'proman_test_index',
-                icon:'android-sad',
-                title: '项目经理考核',
-                component: () => import('@/views/harry/proman_test/proman_test.vue')
-            }
-        ]
-    }
-]
-
-// 班主任的路由
-const masterRouter=[
-    {
-        path: '/master_students',
-        icon: 'android-clipboard',
-        name: 'master_students',
-        title: '学员管理',
-        access:5,
-        component: Main,
-        children: [
-            {
-                path: '/master_manager_students',
-                name: 'master_manager_students_index',
-                icon:'android-contacts',
-                title: '管理学生',
-                component: () => import('@/views/masterManager/master_manager/master_manager_students.vue')
-            },
-            {
-                path: '/back_school',
-                name: 'back_school_index',
-                icon:'ios-infinite',
-                title: '复学管理',
-                component: () => import('@/views/masterManager/master_manager/back_school.vue')
-            }
-        ]
-    }
-]
-
-// 讲师的路由
-const teacherRouter=[
-    {
-        path: '/view_daily',
-        icon: 'social-buffer',
-        name: 'view_daily',
-        access:4,
-        title: '查看日报',
-        component: Main,
-        children: [
-            { 
-                path: 'view_daily',
-                name: 'view_daily_index',
-                icon:'social-buffer',
-                title: '查看日报',
-                component: () => import('@/views/teacher/view_daily/view_daily.vue')
-            }
-        ]
-    },
-    {
-        path: '/view_complaints',
-        icon: 'sad-outline',
-        name: 'view_complaints',
-        access:4,
-        title: '查看投诉',
-        component: Main,
-        children: [
-            { 
-                path: 'view_complaints',
-                name: 'view_complaints_index',
-                icon:'sad-outline',
-                title: '查看投诉',
-                component: () => import('@/views/teacher/view_complaints/view_complaints.vue')
-            }
-        ]
-    }
-]
-
-// 冯老师的路由
-const fengRouter=[
-    {
-        path: '/view_daily',
-        icon: 'social-buffer',
-        name: 'view_daily',
-        access:3,
-        title: '查看日报',
-        component: Main,
-        children: [
-            { 
-                path: 'view_daily',
-                name: 'feng_view_daily_index',
-                icon:'social-buffer',
-                title: '查看日报',
-                component: () => import('@/views/feng/view_daily/view_daily.vue')
-            }
-        ]
-    },
-    {
-        path: '/view_complaints',
-        icon: 'sad-outline',
-        name: 'feng_view_complaints',
-        access:3,
-        title: '查看投诉',
-        component: Main,
-        children: [
-            { 
-                path: 'view_complaints',
-                name: 'feng_view_complaints_index',
-                icon:'sad-outline',
-                title: '查看投诉',
-                component: () => import('@/views/feng/view_complaints/view_complaints.vue')
-            }
-        ]
-    },
-    {
-        path: '/emp_message',
-        icon: 'bookmark',
-        name: 'emp_message',
-        access:3,
-        title: '就业信息',
-        component: Main,
-        children: [
-            { 
-                path: 'emp_message',
-                name: 'emp_message_index',
-                icon:'bookmark',
-                title: '就业信息',
-                component: () => import('@/views/feng/emp_message/emp_message.vue')
-            }
-        ]
-    },
-    {
-        path: '/project_view',
-        icon: 'aperture',
-        name: 'project_view',
-        access:3,
-        title: '项目总览',
-        component: Main,
-        children: [
-            { 
-                path: 'project_example',
-                name: 'project_example_index',
-                icon:'crop',
-                title: '示例项目',
-                component: () => import('@/views/feng/project_view/project_example.vue')
-            },
-            { 
-                path: 'project_students',
-                name: 'project_students_index',
-                icon:'qr-scanner',
-                title: '学生项目',
-                component: () => import('@/views/feng/project_view/project_students.vue')
-            }
-        ]
-    }
-]
-
-// 教学经理的路由
-const teacherManagerRouter=[
-    {
-        path: '/manage_project',
-        icon: 'ios-toggle-outline',
-        name: 'manage_project',
-        title: '基本管理',
-        access:7,
-        component: Main,
-        children: [
-            {
-                path: 'manager_project',
-                name: 'manager_project_index',
-                icon:'ribbon-b',
-                title: '管理项目经理',
-                component: () => import('@/views/teacherManager/manage_project/manage_project.vue')
-            }
-        ]
-    },
-    {
-        path: '/classes_message',
-        icon: 'ios-people',
-        name: 'classes_message',
-        access:7,
-        title: '班级信息',
-        component: Main,
-        children: [
-            {
-                path: 'classes_message',
-                name: 'classes_message_index',
-                icon:'ios-copy-outline',
-                title: '管理班级',
-                component: () => import('@/views/teacherManager/classes_message/classes_message.vue')
-            }
-        ]
-    },
-    {
-        path: '/students_message',
-        icon: 'ios-people',
-        name: 'students_message',
-        access:7,
-        title: '学生信息',
-        component: Main,
-        children: [
-            {
-                path: 'students_ach',
-                name: 'students_ach_index',
-                icon:'ios-copy-outline',
-                title: '学生成绩',
-                component: () => import('@/views/teacherManager/students_message/students_ach.vue')
-            }
-        ]
-    },
-    {
-        path: '/view_complaints',
-        icon: 'sad-outline',
-        access:7,
-        name: 'teach_pro_view_complaints',
-        title: '查看投诉',
-        component: Main,
-        children: [
-            {
-                path: 'teach_pro_view_complaints',
-                name: 'teach_pro_view_complaints_index',
-                icon:'sad-outline',
-                title: '查看投诉',
-                component: () => import('@/views/teacherManager/view_complaints/view_complaints.vue')
-            }
-        ]
-    },
-];
 
 
 // 根据用户名, 从服务器获取角色, 配置相应路由
@@ -559,12 +154,7 @@ const teacherManagerRouter=[
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 
 const myRouter=[
-    ...teacherManagerRouter,
-    ...fengRouter,
-    ...teacherRouter,
-    ...harryRouter,
-    ...projectManagerRouter,
-    ...masterRouter
+    ...studentRouter
 ]
 export const appRouter = myRouter;
 

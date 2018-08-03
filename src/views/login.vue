@@ -55,7 +55,7 @@ export default {
     data () {
         return {
             form: {
-                userName: 'harry',
+                userName: 'xiaoming',
                 password: 'python1234'
             },
             rules: {
@@ -73,9 +73,9 @@ export default {
             this.$refs.loginForm.validate((valid) => {
                 if (valid) {
                     let param = new URLSearchParams();
-                    param.append("username", this.form.userName);
-                    param.append("userpwd", this.form.password);
-                    axios.post('/userinfo/userlogin', param)
+                    param.append("stuname", this.form.userName);
+                    param.append("stupwd", this.form.password);
+                    axios.post('/student/stulogin', param)
                     .then((response)=>{
                         console.log(response.data)
                         if(response.data.result==true){
@@ -86,18 +86,8 @@ export default {
                             this.$store.commit('setAvator', `${response.data.data.headimg}`);
                             
                             let identity=response.data.data.url;
-                            if(identity=='managerindex'){
-                                Cookies.set('access',1);
-                            }else if(identity=='harryindex'){
-                                Cookies.set('access',2);
-                            }else if(identity=='fengindex'){
-                                Cookies.set('access',3);
-                            }else if(identity=='teacherindex'){
-                                Cookies.set('access',4);
-                            }else if(identity=='masterindex'){
-                                Cookies.set('access',5);
-                            }else if(identity=='eduindex'){
-                                Cookies.set('access',7);
+                            if(identity=='studentindex'){
+                                Cookies.set('access',25);
                             }
                             
                             this.$router.push({
