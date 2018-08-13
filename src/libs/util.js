@@ -251,7 +251,7 @@ util.fullscreenEvent = function (vm) {
     // 全屏相关
 };
 
-//iview-admin更新提示
+// iview-admin更新提示
 
 // util.checkUpdate = function (vm) {
 //     axios.get('https://api.github.com/repos/iview/iview-admin/releases/latest').then(res => {
